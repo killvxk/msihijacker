@@ -21,6 +21,8 @@ using namespace std;
 #include "shlwapi.h"
 #pragma comment(lib, "msi.lib")
 #pragma comment(lib, "shlwapi.lib")
+
+//Probably change this so it doesn't open the database/msi as many times.. 
 UINT runquery(const wchar_t* target, const wchar_t* blah, int type)
 {
     PMSIHANDLE hDatabase = 0;
