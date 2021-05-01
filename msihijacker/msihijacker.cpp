@@ -6,7 +6,7 @@
 //You can also add binary data into an MSI and then execute it. May add this in future version but it's fairly simple if you read the MSDN docs.
 //If this does not work on a particular MSI, open it in Orca to see why queries are failing
 //You can also modify this PoC to simply hijack every MSI on the system
-//Will trigger smartscreen if enabled, since it invalidates the publisher
+//Will trigger smartscreen if enabled, since it invalidates the publisher (but I think this is only when it has MOTW, it shouldn't be hard to remove MOTW)
 #define _CRT_SECURE_NO_WARNINGS
 using namespace std;
 
