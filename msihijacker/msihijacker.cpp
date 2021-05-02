@@ -1,4 +1,7 @@
 //FBI SUCKS
+
+//Will add smartscreen bypass and binary data injection/execution in the coming weeks when I have the energy for it..
+
 //Scans downloads folder for downloaded MSI files and changes them to execute elevated stuff. Just a for fun project. 
 //(code will trigger when .msi files are added to downloads folder, not existing .msi files.. modify the code for that)
 //For the user: add error handling to prevent crashes. 
